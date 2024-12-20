@@ -13,6 +13,9 @@
 
 }
 
+a{
+  text-decoration: none;
+}
 /*Header computer*/
 header{
     height: 80px;
@@ -112,6 +115,7 @@ header{
       position: absolute;
       top: 20px;
       right: 20px;
+      transition: 0.3s;
     }
   
     .menu.active {
@@ -124,6 +128,89 @@ header{
 /*Main*/
 
 
-
+.whatsapp{
+  width: 80px;
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+}
 /*Footer*/
 
+footer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: var(--color1);
+  padding: 2vw;
+}
+
+footer h4, h5,p, a{
+color: #000000;
+}
+.logofooter{
+  width: 96vw;
+}
+
+.logofooter img{
+  width: 140px;
+}
+
+.item div{
+  display: flex;
+}
+
+.item img{
+  height: 18px;
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* Cria duas colunas */
+  grid-gap: 20px; /* Espaço entre as colunas e linhas */
+  margin-bottom: 20px; /* Espaço após o container */
+  padding: 10px;
+  
+}
+
+.block h4,p{
+  text-align: center;
+}
+
+.block{
+  width: 48vw;
+  padding: 10px;
+}
+.row {
+  display: contents; /* Garantir que o grid não se repita dentro de cada linha */
+}
+
+.item h5{
+  text-align: left;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content img {
+  margin-right: 10px;
+}
+
+.developed{
+  text-align: center;
+  width: 96vw;
+}
+
+@media (max-width: 1308px) {
+  .container {
+      grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 937px) {
+  .container {
+      grid-template-columns: 1fr; 
+  }
+}
