@@ -16,6 +16,10 @@
 a{
   text-decoration: none;
 }
+
+a:hover{
+  text-decoration: underline;
+}
 /*Header computer*/
 header{
     height: 80px;
@@ -24,6 +28,10 @@ header{
     display: flex;
     justify-content: space-evenly;
     background :linear-gradient(to right, var(--color2), var(--color3));
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1000;
 }
 .logo{
     width: 50vw;
@@ -94,8 +102,8 @@ header{
       width: 100%;
       background:linear-gradient(to right, #005AFF, var(--color3));
       position: absolute;
-      top: 1px;
-      right: 1px;
+      top: 0px;
+      right: 0px;
       width: 50vw;
     }
   
@@ -126,7 +134,230 @@ header{
   
 
 /*Main*/
+.imgBanner{
+  width: 100vw;
+}
+.products{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+  gap: 35px;
+  
+}
 
+.imgcontainer:hover .products img {
+  filter: brightness(0.3); /* Esbranquiça a imagem */
+}
+
+.imgcontainer:hover .text {
+  opacity: 1; /* Torna o texto visível */
+}
+
+.imgcontainer{
+  position: relative;
+  background-color: #fff;
+  transition: opacity 0.6s ease;
+}
+
+.imgcontainer:hover img{
+  opacity: 0.5;
+}
+.image{
+  border-radius: 200px;
+  width: 200px;
+
+}
+
+.text{
+  position: absolute;
+  bottom: 45%;
+  left: 18%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  color: #231F20;
+}
+
+.text:hover{
+  opacity: 1;
+}
+
+@media(max-width:1024px){
+  .products .imgcontainer:nth-child(5) {
+    display:none
+   }
+}
+    @media(max-width:948px) {
+      .image {
+        width: 100px;
+      }
+  
+      .text {
+        font-size: 70%;
+        font-weight: 700;
+        bottom: 45%;
+        left: 15%;
+      }
+      
+    }
+
+    @media(max-width:530px){
+      .products .imgcontainer:nth-child(4) {
+        display:none
+      }
+      .partnerLogo img:nth-child(5) {
+        display:none
+      }
+    }
+
+main{
+  margin-top: 80px;
+}
+
+.container1{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  background :linear-gradient(to right, var(--color3), var(--color2));
+  justify-content: space-between;
+  padding: 2vw;
+  align-items: center;
+}
+
+.container1 h2{
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.container1 div{
+  width: 48vw;
+  padding: 10px;
+  display: flex; /* Torna o div um flex container */
+  justify-content: center; /* Alinha a imagem horizontalmente */
+  align-items: center;
+  flex-direction: column;
+}
+
+.container1 p{
+  color: #fff;
+  text-align: right;
+  padding: 20px;
+}
+
+.container1 img{
+  width: 90%;
+  border-radius: 10px;
+}
+
+.button{
+  background-color: var(--color1);
+  color: #231F20;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+@media(max-width: 768px){
+  .container1{
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .container1 p{
+    text-align: center;
+  }
+
+  .container1 div{
+    width: 100%;
+  }
+}
+
+.container3{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+.container3 h2{
+  border-top: 3px dashed #231F20;
+}
+.areas{
+  width: 100vw;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 50px;
+}
+
+.areas div, .areas a{
+  width: 200px;
+  height: 200px;
+  background-size:cover ;
+  border-radius: 20px;
+}
+
+#img1 {
+  background-image: url('../images/1.png');
+}
+#img2 {
+  background-image: url('../images/3.png');
+}
+#img3 {
+  background-image: url('../images/5.png');
+}
+
+/* Trocar imagem ao passar o mouse */
+#img1:hover {
+  background-image: url('../images/2.png');
+}
+#img2:hover {
+  background-image: url('../images/4.png');
+}
+#img3:hover {
+  background-image: url('../images/6.png');
+}
+
+.partners{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 20px 0px;
+  gap: 15px;
+  align-items: center;
+}
+.partnerLogo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: none;
+}
+
+.partnerLogo img{
+  width: 150px;
+  margin: 0px 10px;
+  transition: 0.3s ease;  
+}
+
+.partnerLogo img:hover{
+  width: 155px;
+  height: auto;
+  
+}
+.partners h2{
+  border-top: 4px dashed #231F20;;
+}
 
 .whatsapp{
   width: 80px;
@@ -140,15 +371,17 @@ footer{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: var(--color1);
-  padding: 2vw;
+  background :linear-gradient(to bottom, var(--color2), var(--color3));
+  border-top: 1px solid #231F20;
 }
 
 footer h4, h5,p, a{
-color: #000000;
+color: #fff;
+font-weight: 190%;
 }
 .logofooter{
   width: 96vw;
+  margin:2vw;
 }
 
 .logofooter img{
@@ -179,6 +412,7 @@ color: #000000;
 
 .block{
   width: 48vw;
+  margin: 0px 2vw;
   padding: 10px;
 }
 .row {
@@ -198,9 +432,28 @@ color: #000000;
   margin-right: 10px;
 }
 
-.developed{
+.instaicon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.instaicon img{
+  height: 20px;
+}
+
+.developed, .developed a{
   text-align: center;
-  width: 96vw;
+  justify-content: center;
+  width: 100vw;
+  height: 50px;
+  background-color: #231F20;
+  color: #fff;
+}
+
+.developed a, .instagram{
+  text-decoration:underline;
 }
 
 @media (max-width: 1308px) {
@@ -214,3 +467,5 @@ color: #000000;
       grid-template-columns: 1fr; 
   }
 }
+
+
