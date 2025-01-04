@@ -1,17 +1,38 @@
 var banner = document.getElementById('imgBanner');
 
+var i = 0;
 var data = [
-    {title: "dedo", url:"images/2689938-online-shopping-concept-modern-flat-concept-for-web-banners-websites-infograficos-impressos-materiais-ilustracaoial-gratis-vetor.jpg"},
-    {title: "dedo", url:"images/3757c30a762387b.jpg"},
-    {title: "dedo", url:"images/banner-content-marketing.jpg"},
+    {title: "Acrilicos e Diversos", url:"images/banners/PÁGINA 1.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 2.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 3.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 4.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 5.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 6.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 7.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 8.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 9.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 10.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 11.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 12.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 13.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 14.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 15.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 16.png"},
+    {title: "dedo", url:"images/banners/PÁGINA 17.png"},
 ];
 
 function mudarImagem(){
-    var i = Math.floor(Math.random() * data.length);
+    
+    if(i < data.length - 1){
+       i++ ;
+    }
+    else{
+        i = 0
+    }
     console.log(i);
     banner.src = data[i].url;
     banner.alt = data[i].title;
-    setTimeout(mudarImagem, 1000);
+    setTimeout(mudarImagem, 10000);
 }
 
 mudarImagem()
