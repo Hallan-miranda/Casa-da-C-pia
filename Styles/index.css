@@ -136,11 +136,13 @@ header{
 /*Main*/
 .imgBanner{
   width: 100vw;
+  transition: opacity 0.6s ease;
 }
 .products{
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow: hidden;
   justify-content: center;
   padding: 20px 0px;
   gap: 35px;
@@ -169,7 +171,24 @@ header{
   width: 200px;
 
 }
+button {
+  position: absolute;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
 
+.next{
+  right: 20px;
+}
+
+.prev{
+  left: 20px;
+}
 .text{
   position: absolute;
   bottom: 45%;
@@ -186,32 +205,38 @@ header{
 }
 
 @media(max-width:1024px){
-  .products .imgcontainer:nth-child(5) {
-    display:none
-   }
-}
-    @media(max-width:948px) {
-      .image {
-        width: 100px;
-      }
+  .image{
+    width: 150px;
+  }
   
-      .text {
-        font-size: 70%;
-        font-weight: 700;
-        bottom: 45%;
-        left: 15%;
-      }
-      
-    }
+}
+@media(max-width:948px) {
+   
+  .text {
+    font-size: 70%;
+    font-weight: 700;
+    bottom: 45%;
+    left: 15%;
+  }
 
-    @media(max-width:530px){
-      .products .imgcontainer:nth-child(4) {
-        display:none
-      }
-      .partnerLogo img:nth-child(5) {
-        display:none
-      }
-    }
+
+      
+}
+
+@media(max-width:530px){
+  .products .imgcontainer:nth-child(3) {
+    display:none
+  }
+  .image{
+    width: 100px;
+  }
+  .text {
+    font-size: 70%;
+    font-weight: 700;
+    bottom: 45%;
+    left: 15%;
+  }
+}
 
 main{
   margin-top: 80px;
@@ -219,10 +244,10 @@ main{
 
 .container1{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: wrap;
   background :linear-gradient(to right, var(--color3), var(--color2));
-  justify-content: space-between;
+  justify-content: center;
   padding: 2vw;
   align-items: center;
 }
@@ -235,13 +260,15 @@ main{
 }
 
 .container1 div{
-  width: 48vw;
+  width: 46vw;
   padding: 10px;
   display: flex; /* Torna o div um flex container */
+  flex-direction: row-reverse;
   justify-content: center; /* Alinha a imagem horizontalmente */
   align-items: center;
   flex-direction: column;
 }
+
 
 .container1 p{
   color: #fff;
@@ -249,10 +276,21 @@ main{
   padding: 20px;
 }
 
-.container1 img{
-  width: 90%;
-  border-radius: 10px;
+.video-responsivo{
+  display: block;
+  margin: 0px auto;
+  width: 780px; 
+  height: 420px;
+  margin: 0px 10vw;
 }
+
+@media(max-width: 768px){
+  .video-responsivo{
+    width: 90%;
+    height: auto;
+  }
+}
+
 
 .button{
   background-color: var(--color1);
@@ -315,6 +353,12 @@ main{
 #img3 {
   background-image: url('../images/5.png');
 }
+#img4 {
+  background-image: url('../images/7.png');
+}
+#img5 {
+  background-image: url('../images/9.png');
+}
 
 /* Trocar imagem ao passar o mouse */
 #img1:hover {
@@ -326,37 +370,72 @@ main{
 #img3:hover {
   background-image: url('../images/6.png');
 }
+#img4:hover {
+  background-image: url('../images/8.png');
+}
+#img5:hover {
+  background-image: url('../images/10.png');
+}
 
 .partners{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-  margin: 20px 0px;
-  gap: 15px;
-  align-items: center;
+
+ white-space: nowrap;
+  overflow: hidden;
+  padding: 60px 0px;
+  
 }
 .partnerLogo{
-  display: flex;
+  width: 100%;
+  display: inline-block;
   flex-direction: row;
-  flex-wrap: wrap;
+  overflow: hidden;
   justify-content: center;
-  border: none;
+  gap: 0px 20px;
+  justify-content: center;
+  position: relative;
+  transition: transform 2s ease;
+  animation: scrollLogos 20s linear infinite;
+
 }
+
 
 .partnerLogo img{
   width: 150px;
-  margin: 0px 10px;
-  transition: 0.3s ease;  
+  height: auto;
+  object-fit: contain;  
+  margin: 0px 30px;
 }
 
 .partnerLogo img:hover{
-  width: 155px;
+  width: 160px;
   height: auto;
   
 }
-.partners h2{
-  border-top: 4px dashed #231F20;;
+
+
+
+
+@keyframes scrollLogos {
+  from {
+      transform: translateX(0);
+  }
+  to{
+      transform: translateX(-100%); /* Move as imagens para a esquerda */
+  }
+}
+.clientes{
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.clientes h2{
+  text-align: center;
+  margin: 20px 0px;
+  width: 100vw;
+  font-size: 2.5rem;
 }
 
 .whatsapp{
@@ -397,13 +476,12 @@ font-weight: 190%;
   margin: 0;
 }
 
-.container {
+.containerf {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* Cria duas colunas */
-  grid-gap: 20px; /* Espaço entre as colunas e linhas */
-  margin-bottom: 20px; /* Espaço após o container */
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); 
+  grid-gap: 20px; 
+  margin-bottom: 20px; 
   padding: 10px;
-  
 }
 
 .block h4,p{
@@ -411,18 +489,22 @@ font-weight: 190%;
 }
 
 .block{
-  width: 48vw;
-  margin: 0px 2vw;
+  width: 46vw;
+  margin: 0px auto;
   padding: 10px;
+  max-width: 750px;
 }
 .row {
-  display: contents; /* Garantir que o grid não se repita dentro de cada linha */
+  display: contents; 
 }
 
-.item h5{
-  text-align: left;
-}
 
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .content {
   display: flex;
   align-items: center;
@@ -457,13 +539,13 @@ font-weight: 190%;
 }
 
 @media (max-width: 1308px) {
-  .container {
+  .containerf {
       grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (max-width: 937px) {
-  .container {
+  .containerf {
       grid-template-columns: 1fr; 
   }
 }
